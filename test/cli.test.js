@@ -31,3 +31,13 @@ test('bad input gives a short error', () => {
     assert.doesNotMatch(r.stderr, /\n\s+at /);
   }
 });
+
+test('missing input is reported as missing', () => {
+  assert.match(run('--price 500').stderr, /^Error: --cost is missing\n/);
+});
+
+test('table and warning show the same LTV:CAC', () => {
+  const { stdout } = run('--price 500 --cost 200 --cac 3600 --churn 2.78');
+  assert.match(stdout, /LTV : CAC\s+2\.99\n/);
+  assert.match(stdout, /only 2\.99 times/);
+});

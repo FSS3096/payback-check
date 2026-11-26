@@ -27,6 +27,10 @@ function readInputs() {
   });
   if (values.help) return null;
 
+  for (const name of ['price', 'cost', 'cac', 'churn']) {
+    if (values[name] === undefined) throw new Error(`--${name} is missing`);
+  }
+
   const inputs = {};
   for (const [name, value] of Object.entries(values)) {
     // Number('') is 0, so empty values have to be caught here
@@ -44,7 +48,8 @@ function report(inputs) {
     ['Average customer lifetime', months(r.lifetimeMonths)],
     ['Lifetime value (LTV)', rupees.format(r.ltv)],
     ['Payback period', r.paybackMonths === null ? 'never' : months(r.paybackMonths)],
-    ['LTV : CAC', plain.format(r.ltvToCac)],
+    // Rounded down, the same way as in the warning
+    ['LTV : CAC', plain.format(Math.floor(r.ltvToCac * 100 + 1e-9) / 100)],
   ];
   if (inputs.fixed !== undefined) {
     const n = r.breakEvenCustomers;
