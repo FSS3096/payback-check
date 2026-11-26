@@ -15,5 +15,10 @@
     "test": "node --test"
   },
   "keywords": ["unit-economics", "ltv", "cac", "payback", "break-even"],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSS3096/payback-check.git"
+  },
+  "homepage": "https://github.com/FSS3096/payback-check#readme"
 }
