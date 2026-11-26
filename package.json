@@ -1,0 +1,19 @@
+{
+  "name": "payback-check",
+  "version": "1.0.0",
+  "description": "Unit economics from the command line, with plain English warnings",
+  "type": "module",
+  "exports": "./src/calculate.js",
+  "bin": {
+    "payback-check": "bin/cli.js"
+  },
+  "files": ["bin", "src"],
+  "engines": {
+    "node": ">=18.3"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["unit-economics", "ltv", "cac", "payback", "break-even"],
+  "license": "MIT"
+}
