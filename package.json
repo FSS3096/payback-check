@@ -11,9 +11,6 @@
   "engines": {
     "node": ">=18.3"
   },
-  "scripts": {
-    "test": "node --test"
-  },
   "keywords": ["unit-economics", "ltv", "cac", "payback", "break-even"],
   "license": "MIT",
   "repository": {
